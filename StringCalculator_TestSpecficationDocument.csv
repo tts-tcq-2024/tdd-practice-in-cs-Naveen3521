@@ -1,0 +1,10 @@
+﻿Test Case Document For String Calculator,,,,
+TestCase Number,TestCase Name,Description,Input,Expected Output
+TC001,StringSumCalculator_ExpectZeroForEmptyInput,when given input string is empty the value returned is 0,"""""",0
+tc002,StringSumCalculator_ExpectZeroForSingleZero,when given input string contains number 0 then output is zero,"""0"" ",0
+TC003,StringSumCalculator_ExpectSumForTwoNumbers,"when given input string contains 2 numbers(say 1,2)the sum is calculated and result is given as output (result = 3)","""1,2""",3
+TC004,StringSumCalculator_ExpectExceptionForNegativeNumbers,"when given input string contains a negative number a system exception is thrown ""No Negative Numbers are Allowed!""","""-1,2""",SystemException:No Negative Numbers are Allowed!
+TC005,StringSumCalculator_ExpectSumWithNewlineDelimiter,when given input string contains newline character as a delimter should calculate the sum and return output,"1,2\n3",6
+TC006,StringSumCalculator_IgnoreNumbersGreaterThan1000,"when given input string seperated by delimter contains a number greater 1000, the number which is greater than 1000 is gnored d and the sum should be calculated","""1,2,1231asc""",3
+TC007,StringSumCalculator_ExpectSumWithCustomDelimiter,given input string can have any delimeter or can contain multiple delimters consecutively this string when given as input should find all numbers in given string and calculate sum,"2,'#$%^%^4asddasc",6
+TC008,StringSumCalculator_ExceptionForSpecialCharacterAfterNewLineCharacter,"Given input string if the string has any special character(#@%^  , whitespaces after \n it is considerd as invalid input and will throw exception ""Not valid input: no special character allowed after delimter ""\n"""")","""1,2\n,3""","SystemException ""Not valid input: no special character allowed after delimter ""\n"""""
