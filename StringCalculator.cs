@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 public class StringCalculator
 {
-    public static int StringSumCalculator(string input)
+    public int StringSumCalculator(string input)
     {
         if (string.IsNullOrEmpty(input))
             return 0;
@@ -15,7 +15,7 @@ public class StringCalculator
         return result;
     }
 
-    private static void ValidateCharacterAfterNewline(string input)
+    private void ValidateCharacterAfterNewline(string input)
     {
         if (Regex.IsMatch(input, @"\n[^\d\w]"))
         {
@@ -23,7 +23,7 @@ public class StringCalculator
         }
     }
 
-    private static int CalculateSum(string input)
+    private int CalculateSum(string input)
     {
         // Regular expression that removes excess negative signs
         string preprocessedNumbers = Regex.Replace(input, @"-+", "-", RegexOptions.None);
@@ -38,7 +38,7 @@ public class StringCalculator
         }
         return sum;
     }
-    private static int ValidateAndSum(int number)
+    private int ValidateAndSum(int number)
     {
         if (number < 0) //throws exception when number is negative
         {
