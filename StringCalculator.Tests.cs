@@ -11,7 +11,7 @@ public class StringCalculatorAddTests
         int expectedResult = 0;
         string input = "";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
@@ -22,7 +22,7 @@ public class StringCalculatorAddTests
         int expectedResult = 0;
         string input = "0";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
         Assert.Equal(expectedResult, result);
     }
@@ -33,7 +33,7 @@ public class StringCalculatorAddTests
         int expectedResult = 3;
         string input = "1,2";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
@@ -45,7 +45,7 @@ public class StringCalculatorAddTests
         {
             string input = "-1,2";
             StringCalculator objUnderTest = new StringCalculator();
-            objUnderTest.Add(input);
+            objUnderTest.StringSumCalculator(input);
         });
     }
 
@@ -55,7 +55,7 @@ public class StringCalculatorAddTests
         int expectedResult = 6;
         string input = "1\n2,3";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
@@ -66,7 +66,7 @@ public class StringCalculatorAddTests
         int expectedResult = 1;
         string input = "1,1001";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
@@ -77,7 +77,7 @@ public class StringCalculatorAddTests
         int expectedResult = 3;
         string input = "//;\n1;2";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
