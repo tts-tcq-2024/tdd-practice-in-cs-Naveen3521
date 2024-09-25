@@ -81,4 +81,14 @@ public class StringCalculatorAddTests
 
        Assert.Equal(expectedResult, result);
     }
+    [Fact]
+    public void ExceptionForSpecialCharacterAfterNewLineCharacter()
+    {
+        Assert.Throws<Exception>(() =>
+        {
+            string input = "1,2\n,3";
+            StringCalculator objUnderTest = new StringCalculator();
+            objUnderTest.StringSumCalculator(input);
+        )};
+    }
 }
