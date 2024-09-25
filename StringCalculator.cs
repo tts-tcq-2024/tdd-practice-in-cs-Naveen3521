@@ -29,7 +29,7 @@ public class StringCalculator
         // Regular expression that removes excess negative signs
         string preprocessedNumbers = Regex.Replace(input, @"-+", "-", RegexOptions.None);
         // Regular expression that gets numbers separated by delimiters
-        MatchCollection NumbersCollection = Regex.Matches(preprocessedNumbers, @"\b-?\d+\b");
+        MatchCollection NumbersCollection = Regex.Matches(preprocessedNumbers, @"-?\d+");
         int sum = 0;
         foreach (Match match in NumbersCollection)
         {
