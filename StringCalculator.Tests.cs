@@ -7,7 +7,7 @@ public class StringCalculatorAddTests
 {
     [Theory]
     [InlineData("",0)]
-    public void ExpectZeroForEmptyInput(string input,int expectedResult)
+    public void StringSumCalculator_ExpectZeroForEmptyInput(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.StringSumCalculator(input);
@@ -17,7 +17,7 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("0",0)]
-    public void ExpectZeroForSingleZero(string input,int expectedResult)
+    public void StringSumCalculator_ExpectZeroForSingleZero(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.StringSumCalculator(input);
@@ -27,7 +27,7 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("1,2",3)]
-    public void ExpectSumForTwoNumbers(string input,int expectedResult)
+    public void StringSumCalculator_ExpectSumForTwoNumbers(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.StringSumCalculator(input);
@@ -37,7 +37,7 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("-1,2")]
-    public void ExpectExceptionForNegativeNumbers(string input)
+    public void StringSumCalculator_ExpectExceptionForNegativeNumbers(string input)
     {
         Assert.Throws<Exception>(() =>
         {
@@ -49,7 +49,7 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("1\n2,3",6)]
-    public void ExpectSumWithNewlineDelimiter(string input,int expectedResult)
+    public void StringSumCalculator_ExpectSumWithNewlineDelimiter(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.StringSumCalculator(input);
@@ -59,7 +59,7 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("1,1001",1)]
-    public void IgnoreNumbersGreaterThan1000(string input,int expectedResult)
+    public void StringSumCalculator_IgnoreNumbersGreaterThan1000(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.StringSumCalculator(input);
