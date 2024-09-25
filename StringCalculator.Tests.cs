@@ -84,11 +84,11 @@ public class StringCalculatorAddTests
     [Fact]
     public void ExceptionForSpecialCharacterAfterNewLineCharacter()
     {
-        Assert.Throws<Exception>(() =>
+         Assert.Throws<Exception>(() =>
         {
             string input = "1,2\n,3";
             StringCalculator objUnderTest = new StringCalculator();
             objUnderTest.StringSumCalculator(input);
-        )};
+        });
     }
 }
