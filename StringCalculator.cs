@@ -17,7 +17,7 @@ public class StringCalculator
 
     private static void ValidateCharacterAfterNewline(string input)
     {
-        if (Regex.IsMatch(input, @"\n[^\d\w]")
+        if (Regex.IsMatch(input, @"\n[^\d\w]"))
         {
             throw new InvalidOperationException("Not valid input: not allowed to add delimter after \"\n\"");
         }
