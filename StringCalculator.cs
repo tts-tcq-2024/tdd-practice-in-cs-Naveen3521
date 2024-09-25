@@ -20,7 +20,7 @@ public class StringCalculator
     {
         if (Regex.IsMatch(input, @"\n[^\d\w]"))
         {
-            throw new InvalidOperationException("Not valid input: not allowed to add delimter after \"\n\"");
+            throw new System.Exception("Not valid input: not allowed to add delimter after \"\n\"");
         }
     }
 
@@ -43,7 +43,7 @@ public class StringCalculator
     {
         if (number < 0) //throws exception when number is negative
         {
-            throw new InvalidOperationException("No Negative Numbers are Allowed!");
+            throw new System.Exception("No Negative Numbers are Allowed!");
         }
 
         return number < 1000 ? number : 0;
