@@ -46,7 +46,7 @@ public class StringCalculator
             throw new System.Exception("No Negative Numbers are Allowed!");
         }
 
-        return number < 1000 ? number : 0;
+        return number <= 1000 ? number : 0;
     }
 
 }
