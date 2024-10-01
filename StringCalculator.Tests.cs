@@ -103,7 +103,7 @@ public class StringCalculatorAddTests
     public void StringSumCalculator_HandleNumberEqualto1000(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.StringSumCalculator(intput);
+        int result = objUnderTest.StringSumCalculator(input);
 
         Assert.Equal(result,expectedResult);
     }
@@ -115,7 +115,7 @@ public class StringCalculatorAddTests
     public void StringCalculator_IgnoreSpecialCharacterAndLetters(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.StringSumCalculator(intput);
+        int result = objUnderTest.StringSumCalculator(input);
 
         Assert.Equal(result,expectedResult);
     }
