@@ -27,7 +27,7 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("000",0)]
-    [InlineData("sd,0,,,0,asd,0",0)]
+    [InlineData("sd,0,,,0,asd,0",0)] //string containing multiple zero numbers 
     public void StringSumCalculator_HandleMultipleZerosInString(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
@@ -38,7 +38,7 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("1,2",3)]
-    [InlineData("1,abc%3^4",8)]
+    [InlineData("1,abc%3^4",8)] 
     public void StringSumCalculator_ExpectSumNumbers(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
@@ -49,7 +49,8 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("-1,2")]
-    [InlineData("-1-ac,-2")]
+    [InlineData("-1-ac,-2")] //multiple negative numbers mixed with string
+    [InlineData("-1,-2,-3")] //multiple negative numbers
     public void StringSumCalculator_ExpectExceptionForNegativeNumbers(string input)
     {
         Assert.Throws<Exception>(() =>
@@ -83,7 +84,7 @@ public class StringCalculatorAddTests
     [Theory]
     [InlineData("//;\n1;2",3)]
     [InlineData(",/\n1#2$3",6)]
-    [InlineData(",1,2,",3)]
+    [InlineData(",1,2$",3)] //leading and trailing delimeters
     public void StringSumCalculator_ExpectSumWithCustomDelimiter(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
