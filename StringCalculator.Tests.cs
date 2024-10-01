@@ -38,7 +38,8 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("1,2",3)]
-    public void StringSumCalculator_ExpectSumForTwoNumbers(string input,int expectedResult)
+    [InlineData("1,abc%3^4",8)]
+    public void StringSumCalculator_ExpectSumNumbers(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.StringSumCalculator(input);
@@ -48,6 +49,7 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("-1,2")]
+    [InlineData("-1-ac,-2")]
     public void StringSumCalculator_ExpectExceptionForNegativeNumbers(string input)
     {
         Assert.Throws<Exception>(() =>
@@ -80,6 +82,8 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("//;\n1;2",3)]
+    [InlineData(",/\n1#2$3",6)]
+    [InlineData(",1,2,",3)]
     public void StringSumCalculator_ExpectSumWithCustomDelimiter(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
