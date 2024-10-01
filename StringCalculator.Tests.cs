@@ -26,6 +26,17 @@ public class StringCalculatorAddTests
     }
 
     [Theory]
+    [InlineData("000",0)]
+    [InlineData("sd,0,,,0,asd,0",0)]
+    public void StringSumCalculator_HandleMultipleZerosInString(string input,int expectedResult)
+    {
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.StringSumCalculator(input);
+
+        Assert.Equal(expectedResult, result);
+    }
+
+    [Theory]
     [InlineData("1,2",3)]
     public void StringSumCalculator_ExpectSumForTwoNumbers(string input,int expectedResult)
     {
@@ -85,5 +96,27 @@ public class StringCalculatorAddTests
             StringCalculator objUnderTest = new StringCalculator();
             objUnderTest.StringSumCalculator(input);
         });
+    }
+
+    [Theory]
+    [InlineData("abc,1000,1",1001)]
+    public void StringSumCalculator_HandleNumberEqualto1000(string input,int expectedResult)
+    {
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.StringSumCalculator(intput);
+
+        Assert.Equal(result,expectedResult);
+    }
+
+    [Theory]
+    [InlineData("abc",0)]
+    [InlineData("#$%%^",0)]
+    [InlineData("ac,#$%",0)]
+    public void StringCalculator_IgnoreSpecialCharacterAndLetters(string input,int expectedResult)
+    {
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.StringSumCalculator(intput);
+
+        Assert.Equal(result,expectedResult);
     }
 }
