@@ -19,4 +19,4 @@ TC008,StringSumCalculator_ExpectSumWithCustomDelimiter,given input string can ha
 ",3
 TC009,StringSumCalculator_ExceptionForSpecialCharacterAfterNewLineCharacter,"Given input string if the string has any special character(#@%^  , whitespaces after \n it is considerd as invalid input and will throw exception ""Not valid input: no special character allowed after delimter ""\n"""")","""1,2\n,3""","SystemException ""Not valid input: no special character allowed after delimter ""\n"""""
 TC010,StringSumCalculator_HandleNumberEqualto1000,"Given input string contains number 1000 seperated by delimter,all numbers in given input string must be found (including number 1000) and sum should be calculated","""abc,1000,1""",1001
-TC011,StringCalculator_IgnoreSpecialCharacterAndLetters,Given input string contains non numeric characters seperated by delimter,"""ac,#$%""",0
+TC011,StringCalculator_IgnoreSpecialCharacterAndLetters,Given input string contains non numeric characters seperated by delimter are ignored and output returned is zero,"""ac,#$%""",0
