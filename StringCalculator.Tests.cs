@@ -17,7 +17,8 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("0",0)]
-    public void StringSumCalculator_ExpectZeroForSingleZero(string input,int expectedResult)
+    [InlineData("5",5)]
+    public void StringSumCalculator_ExpectSumForSingleNumber(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.StringSumCalculator(input);
@@ -118,6 +119,16 @@ public class StringCalculatorAddTests
     [InlineData("#$%%^",0)]
     [InlineData("ac,#$%",0)]
     public void StringCalculator_IgnoreSpecialCharacterAndLetters(string input,int expectedResult)
+    {
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.StringSumCalculator(input);
+
+        Assert.Equal(result,expectedResult);
+    }
+
+    [Theory]
+    [InlineData("102avcd",0)]
+    public void StringCalculator_IgnoreNumbersNotSeperatedByDelimiter(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
         int result = objUnderTest.StringSumCalculator(input);
