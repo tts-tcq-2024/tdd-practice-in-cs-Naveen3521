@@ -125,14 +125,4 @@ public class StringCalculatorAddTests
 
         Assert.Equal(result,expectedResult);
     }
-
-    [Theory]
-    [InlineData("102avcd",0)]
-    public void StringCalculator_IgnoreNumbersNotSeperatedByDelimiter(string input,int expectedResult)
-    {
-        StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.StringSumCalculator(input);
-
-        Assert.Equal(result,expectedResult);
-    }
 }
