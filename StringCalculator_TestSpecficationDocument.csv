@@ -1,0 +1,22 @@
+Test Case Document For String Calculator,,,,
+TestCase Number,TestCase Name,Description,Input,Expected Output
+TC001,StringSumCalculator_ExpectZeroForEmptyInput,when given input string is empty the value returned is 0,"i) """"",i) 0
+TC002,StringSumCalculator_ExpectSumForSingleNumber,When given input string contains a single number (this includes zero) then the output will be the number given,"i) ""0"" 
+ii) ""5""","i) 0
+ii) 5"
+TC003,StringSumCalculator_HandleMultipleZerosInString,when given input string contains consecutive zeros or striing consists of multiple occrences of zeros seperated by delimiter the output is zero,"i) ""000""
+ii) ""sd,0,,,0,asd,0""","i) 0
+ii) 0"
+TC004,StringSumCalculator_ExpectSumOfNumbers,when given input string contains valid numbers seperated by delimiters the sum of all the numbers is calculated and result is printed,"i) ""1,2""
+ii) ""1,abc%3^4""","i) 3
+ii) 8"
+TC005,StringSumCalculator_ExpectExceptionForNegativeNumbers,"when given input string contains one or more negative numbers a system exception is thrown ""No Negative Numbers are Allowed!""","i) ""-1,2""
+ii) ""-1-ac,-2""","i) SystemException:No Negative Numbers are Allowed!
+ii) SystemException:No Negative Numbers are Allowed!"
+TC006,StringSumCalculator_ExpectSumWithNewlineDelimiter,when given input string contains newline character as a delimter should calculate the sum and return output,"i) 1,2\n3",i) 6
+TC007,StringSumCalculator_IgnoreNumbersGreaterThan1000,"when given input string seperated by delimter contains a number greater 1000, the number which is greater than 1000 is gnored d and the sum should be calculated","i) ""1,2,1231asc""",i) 3
+TC008,StringSumCalculator_ExpectSumWithCustomDelimiter,given input string can have any delimeter or can contain multiple delimters consecutively this string when given as input should find all numbers in given string and calculate sum,"i) ""//;\n1;2""
+",i) 3
+TC009,StringSumCalculator_ExceptionForSpecialCharacterAfterNewLineCharacter,"Given input string if the string has any special character(#@%^  , whitespaces after \n it is considerd as invalid input and will throw exception ""Not valid input: no special character allowed after delimter ""\n"""")","i) ""1,2\n,3""","i) SystemException ""Not valid input: no special character allowed after delimter ""\n"""""
+TC010,StringSumCalculator_HandleNumberEqualto1000,"Given input string contains number 1000 seperated by delimter,all numbers in given input string must be found (including number 1000) and sum should be calculated","i) ""abc,1000,1""",i) 1001
+TC011,StringCalculator_IgnoreSpecialCharacterAndLetters,Given input string contains non numeric characters seperated by delimter output is 0,"i) ""ac,#$%""",i) 0
