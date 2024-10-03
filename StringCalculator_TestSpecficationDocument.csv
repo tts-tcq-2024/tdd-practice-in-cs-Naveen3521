@@ -7,7 +7,7 @@ TC002,StringSumCalculator_ExpectSumForSingleNumber,When given input string conta
 TC003,StringSumCalculator_HandleMultipleZerosInString,when given input string contains consecutive zeros or striing consists of multiple occrences of zeros seperated by delimiter the output is zero,"""000""
 ""sd,0,,,0,asd,0""","0
 0"
-TC004,StringSumCalculator_ExpectSumNumbers,when given input string contains valid numbers seperated by delimiters the sum of all the numbers is calculated and result is printed,"""1,2""
+TC004,StringSumCalculator_ExpectSumOfNumbers,when given input string contains valid numbers seperated by delimiters the sum of all the numbers is calculated and result is printed,"""1,2""
 ""1,abc%3^4""","3
 8"
 TC005,StringSumCalculator_ExpectExceptionForNegativeNumbers,"when given input string contains one or more negative numbers a system exception is thrown ""No Negative Numbers are Allowed!""","""-1,2""
