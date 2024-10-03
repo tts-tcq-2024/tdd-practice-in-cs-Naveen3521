@@ -84,8 +84,8 @@ public class StringCalculatorAddTests
 
     [Theory]
     [InlineData("//;\n1;2",3)]
-    [InlineData(",/\n1#2$3",6)]
     [InlineData(",1,2$",3)] //leading and trailing delimeters
+    [InlineData("1abc3",4)]
     public void StringSumCalculator_ExpectSumWithCustomDelimiter(string input,int expectedResult)
     {
         StringCalculator objUnderTest = new StringCalculator();
