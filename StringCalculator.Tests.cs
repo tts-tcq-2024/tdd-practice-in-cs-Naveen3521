@@ -5,80 +5,124 @@ using Xunit;
 
 public class StringCalculatorAddTests
 {
-    [Fact]
-    public void ExpectZeroForEmptyInput()
+    [Theory]
+    [InlineData("",0)]
+    public void StringSumCalculator_ExpectZeroForEmptyInput(string input,int expectedResult)
     {
-        int expectedResult = 0;
-        string input = "";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
 
-  [Fact]
-    public void ExpectZeroForSingleZero()
+    [Theory]
+    [InlineData("0",0)]
+    [InlineData("5",5)]
+    public void StringSumCalculator_ExpectSumForSingleNumber(string input,int expectedResult)
     {
-        int expectedResult = 0;
-        string input = "0";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
         Assert.Equal(expectedResult, result);
     }
 
-  [Fact]
-    public void ExpectSumForTwoNumbers()
+    [Theory]
+    [InlineData("000",0)]
+    [InlineData("sd,0,,,0,asd,0",0)] //string containing multiple zero numbers 
+    public void StringSumCalculator_HandleMultipleZerosInString(string input,int expectedResult)
     {
-        int expectedResult = 3;
-        string input = "1,2";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
+
+        Assert.Equal(expectedResult, result);
+    }
+
+    [Theory]
+    [InlineData("1,2",3)]
+    [InlineData("1,abc%3^4",8)] 
+    public void StringSumCalculator_ExpectSumNumbers(string input,int expectedResult)
+    {
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
 
-    [Fact]
-    public void ExpectExceptionForNegativeNumbers()
+    [Theory]
+    [InlineData("-1,2")]
+    [InlineData("-1-ac,-2")] //multiple negative numbers mixed with string
+    [InlineData("-1,-2,-3")] //multiple negative numbers
+    public void StringSumCalculator_ExpectExceptionForNegativeNumbers(string input)
     {
         Assert.Throws<Exception>(() =>
         {
             string input = "-1,2";
             StringCalculator objUnderTest = new StringCalculator();
-            objUnderTest.Add(input);
+            objUnderTest.StringSumCalculator(input);
         });
     }
 
-  [Fact]
-    public void ExpectSumWithNewlineDelimiter()
+    [Theory]
+    [InlineData("1\n2,3",6)]
+    public void StringSumCalculator_ExpectSumWithNewlineDelimiter(string input,int expectedResult)
     {
-        int expectedResult = 6;
-        string input = "1\n2,3";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
 
-  [Fact]
-    public void IgnoreNumbersGreaterThan1000()
+    [Theory]
+    [InlineData("1,1001",1)]
+    public void StringSumCalculator_IgnoreNumbersGreaterThan1000(string input,int expectedResult)
     {
-        int expectedResult = 1;
-        string input = "1,1001";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
     }
 
-    [Fact]
-    public void ExpectSumWithCustomDelimiter()
+    [Theory]
+    [InlineData("//;\n1;2",3)]
+    [InlineData(",1,2$",3)] //leading and trailing delimeters
+    [InlineData("1abc3",4)]
+    public void StringSumCalculator_ExpectSumWithCustomDelimiter(string input,int expectedResult)
     {
-        int expectedResult = 3;
-        string input = "//;\n1;2";
         StringCalculator objUnderTest = new StringCalculator();
-        int result = objUnderTest.Add(input);
+        int result = objUnderTest.StringSumCalculator(input);
 
        Assert.Equal(expectedResult, result);
+    }
+    [Theory]
+    [InlineData("1,2\n,3")]
+    public void StringSumCalculator_ExceptionForSpecialCharacterAfterNewLineCharacter(string input)
+    {
+         Assert.Throws<Exception>(() =>
+        {
+            StringCalculator objUnderTest = new StringCalculator();
+            objUnderTest.StringSumCalculator(input);
+        });
+    }
+
+    [Theory]
+    [InlineData("abc,1000,1",1001)]
+    public void StringSumCalculator_HandleNumberEqualto1000(string input,int expectedResult)
+    {
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.StringSumCalculator(input);
+
+        Assert.Equal(result,expectedResult);
+    }
+
+    [Theory]
+    [InlineData("abc",0)]
+    [InlineData("#$%%^",0)]
+    [InlineData("ac,#$%",0)]
+    public void StringCalculator_IgnoreSpecialCharacterAndLetters(string input,int expectedResult)
+    {
+        StringCalculator objUnderTest = new StringCalculator();
+        int result = objUnderTest.StringSumCalculator(input);
+
+        Assert.Equal(result,expectedResult);
     }
 }
